@@ -22,9 +22,8 @@ steps:
     goals: 'package'
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Agent.BuildDirectory)'
-    Contents: '**/.war'
-    TargetFolder: '${Build.ArtifactStagingDirectory}'
+    Contents: '**/target/Azure.war'
+    TargetFolder: '$(build.artifactstagingdirectory)'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
